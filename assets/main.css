@@ -1,0 +1,311 @@
+:root {
+  --primary-color: #4d9fff;
+  --text-color: #333;
+}
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body {
+  overflow: hidden;
+  font-family: 'Poppins', sans-serif;
+}
+
+::-webkit-scrollbar {
+  width: 0px;
+}
+
+.main {
+  display: flex;
+  height: 100%;
+  overflow: hidden;
+  margin: 16px;
+  box-shadow: 0 0 10px 5px #000;
+  border-radius: 10px;
+  background: #ccc;
+}
+.main .icon-pause {
+  display: none;
+}
+.main.playing .icon-pause {
+  display: inline-block;
+}
+.main.playing .icon-play {
+  display: none;
+}
+
+.information-music {
+  width: 1000px;
+  height: 937px;
+  display: flex;
+  flex-direction: column;
+  background-image: linear-gradient(var(--primary-color), #fff);
+  margin-right: 2px;
+  border-radius: 10px;
+}
+
+.picture-music {
+  width: 100%;
+  height: 40%;
+  position: relative;
+}
+.warpper-picture {
+  position: absolute;
+  display: flex;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+.logo {
+  width: 300px;
+  height: 300px;
+  background-color: #fff;
+  z-index: 1;
+  border-radius: 10px;
+}
+.logo-img {
+  width: 100%;
+  height: 100%;
+  box-shadow: 0 0 20px #000;
+  border-radius: 10px;
+}
+.img-music {
+  width: 150px;
+  height: 150px;
+  background-image: url(./img/MuonRoiMaSaoCon.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-radius: 50%;
+  box-shadow: 0 0 10px #000;
+  margin: 50px auto ;
+}
+
+
+.list-music {
+  background-image: url(https://bloghocpiano.com/wp-content/uploads/2021/03/1376932-top-music-sheet-wallpaper-2044x1389-windows-10.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 1000px;
+  height: 940px;
+  overflow: hidden;
+  border-radius: 10px;
+  margin-left: 2px;
+  overflow: scroll;
+}
+
+.title-music {
+  padding: 8px;
+  color: var(--text-color);
+  position: relative;
+  width: 100%;
+  height: 60%;
+}
+
+.title-music h3,
+.title-music h1,
+.title-music h2 {
+  text-align: center
+}
+.title-music h2 {
+  margin-top: 8px;
+}
+.title-music h1 {
+  margin-top: 12px;
+  font-size: 35px;
+}
+.control-volume {
+  display: flex;
+  justify-content: flex-end;
+  position: relative;
+}
+.volume-value {
+  position: absolute;
+  top: -70px;
+  right: -42px;
+  transform: rotate(-90deg);
+  cursor: pointer;
+  display: none;
+  z-index: 2;
+}
+.icon-volume {
+  font-size: 25px;
+  margin-bottom: 10px;
+  padding: 10px;
+  cursor: pointer;
+  position: relative;
+}
+.icon-volume:hover .icon-volume::after {
+  display: block;
+}
+.icon-volume::after {
+  content: '';
+  width: 30px;
+  height: 150px;
+  background-color: transparent;
+  position: absolute;
+  top: -133px;
+  right: 9px;
+  cursor: pointer;
+  z-index: 1;
+  display: none;
+}
+.warpper-controls {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 230px;
+  padding: 0 16px;
+}
+.progress {
+  width: 100%;
+  height: 6px;
+  overflow: hidden;
+  outline: none;
+  cursor: pointer;
+  transition: all linear 0.1s ;
+}
+.progress:hover {
+  height: 10px;
+  overflow: unset;
+  opacity: 0.8;
+}
+
+.progress-area {
+  height: 6px;
+  width: 100%;
+  background: #e1e1e1;
+  border-radius: 50px;
+  cursor: pointer;
+  box-shadow: 0 0 2px rgb(0 0 0 / 50%);
+}
+
+.progress-area .progress-bar {
+  height: inherit;
+  width: 0%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, #fff -50%, var(--primary-color) 100%);
+  position: relative;
+}
+
+.progress-bar::before {
+  content: '';
+  position: absolute;
+  height: 12px;
+  width: 12px;
+  background-color: var(--primary-color);
+  border-radius: inherit;
+  top: 50%;
+  transform: translateY(-50%);
+  right: -5px;
+  opacity: 0;
+  transition: opacity ease 0.2s;
+}
+
+.progress-area:hover .progress-bar::before {
+  opacity: 1;
+
+}
+
+.timer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 10px;
+  cursor: auto;
+}
+
+.controls {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 50px;
+}
+.controls .btn {
+  font-size: 25px;
+  padding: 8px;
+  cursor: pointer;
+}
+.controls .btn:hover {
+  opacity: 0.8;
+}
+.btn-toggle-play {
+  background-color: var(--primary-color);
+  width: 60px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  color: #fff;
+  box-shadow: 0 0 5px 2px var(--primary-color);
+}
+.btn-repeat.active,
+.btn-random.active {
+  color: var(--primary-color);
+}
+.list-music-title {
+  text-align: center;
+  text-transform: uppercase;
+  margin-top: 16px;
+}
+
+
+.song {
+  display: flex;
+  align-items: center;
+  margin-bottom: 12px;
+  background-color: #fff;
+  padding: 8px 16px;
+  border-radius: 10px;
+  box-shadow: 0 0 8px 0.5px rgb(0 0 0);
+  margin: 16px;
+  cursor: pointer;
+}
+
+.song.active {
+  background-image: linear-gradient( to left, #fff -50%, var(--primary-color) 90%);
+}
+
+.song:active {
+  opacity: 0.9;
+}
+.song:hover {
+  transform: translateX(5px);
+}
+
+.song.active .option,
+.song.active .author,
+.song.active .title {
+  color: #fff;
+}
+
+.song .thumb {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background-size: cover;
+  margin: 0 8px;
+}
+
+.song .body {
+  flex: 1;
+  padding: 0 16px;
+}
+
+.song .title {
+  font-size: 18px;
+  color: var(--text-color);
+}
+
+.song .author {
+  font-size: 12px;
+  color: #999;
+}
+
+.song .option {
+  padding: 16px 8px;
+  color: #999;
+  font-size: 18px;
+}
+
