@@ -4,6 +4,7 @@ const $$ = document.querySelectorAll.bind(document);
 const PLAYER_STORAGE_KEY = 'F8_PLAYER'
 
 const playlist = $('.playlist')
+const playlistMobile = $('.playlist-mobile')
 const listMusic = $('.list-music')
 const heading = $('.title-music h1')
 const singer = $('.title-music h3')
@@ -28,10 +29,28 @@ const app = {
   config: JSON.parse(localStorage.getItem(PLAYER_STORAGE_KEY)) || {},
   songs: [
     {
+      name: "Em Đừng Đi",
+      singer: "Sơn Tùng - MTP (2011)",
+      path: "./assets/audio/EmDungDi.mp3",
+      image: "./assets/img/EmDungDi.jpg"
+    },
+    {
       name: "Cơn Mưa Ngang Qua",
       singer: "Sơn Tùng - MTP (2012)",
       path: "./assets/audio/ConMuaNgangQua.mp3",
       image: "./assets/img/ConMuaNgangQua.jpg"
+    },
+    {
+      name: "Làm Người Luôn Yêu Em",
+      singer: "Sơn Tùng - MTP (2012)",
+      path: "./assets/audio/LamNguoiLuonYeuEm.mp3",
+      image: "./assets/img/LamNguoiLuonYeuEm.jpg"
+    },
+    {
+      name: "Anh Sai Rồi",
+      singer: "Sơn Tùng - MTP (2013)",
+      path: "./assets/audio/AnhSaiRoi.mp3",
+      image: "./assets/img/AnhSaiRoi.jpg"
     },
     {
       name: "Nắng Ấm Xa Dần",
@@ -40,7 +59,7 @@ const app = {
       image: "./assets/img/NangAmXaDan.jpg"
     },
     {
-      name: "Đừng Về trễ",
+      name: "Đừng Về Trễ",
       singer: "Sơn Tùng - MTP (2013)",
       path: "./assets/audio/DungVeTre.mp3",
       image: "./assets/img/DungVeTre.jpg"
@@ -56,6 +75,12 @@ const app = {
       singer: "Sơn Tùng - MTP (2014)",
       path: "./assets/audio/ChacAiDoSeVe.mp3",
       image: "./assets/img/ChacAiDoSeVe.jpg"
+    },
+    {
+      name: "Ấn Nút Nhớ Thả Giấc Mơ",
+      singer: "Sơn Tùng - MTP (2015)",
+      path: "./assets/audio/AnNutNhoThaGiacMo.mp3",
+      image: "./assets/img/AnNutNhoThaGiacMo.jpg"
     },
     {
       name: "Không Phải Dạng Vừa Đâu",
@@ -137,19 +162,19 @@ const app = {
     },
     {
       name: "Có Chắc Yêu Là Đây",
-      singer: "Sơn Tùng - MTP X Snoop Dogg (2020)",
+      singer: "Sơn Tùng - MTP (2020)",
       path: "./assets/audio/CoChacYeuLaDay.mp3",
       image: "./assets/img/CoChacYeuLaDay.jpg"
     },
     {
       name: "Chúng Ta Của Hiện Tại",
-      singer: "Sơn Tùng - MTP X Snoop Dogg (2020)",
+      singer: "Sơn Tùng - MTP (2020)",
       path: "./assets/audio/ChungTaCuaHienTai.mp3",
       image: "./assets/img/ChungTaCuaHienTai.jpg"
     },
     {
       name: "Muộn Rồi Mà Sao Còn",
-      singer: "Sơn Tùng - MTP X Snoop Dogg (2021)",
+      singer: "Sơn Tùng - MTP (2021)",
       path: "./assets/audio/MuonRoiMaSaoCon.mp3",
       image: "./assets/img/MuonRoiMaSaoCon.jpg"
     },
@@ -183,6 +208,7 @@ const app = {
     })
     playlist.innerHTML = htmls.join('');
   },
+
   handleEvent: function () {
     const _this = this;
     playBtn.onclick = function () {
@@ -377,7 +403,6 @@ const app = {
 
     this.render();
 
-
     randomBtn.classList.toggle('active', this.isRandom)
     repeatBtn.classList.toggle('active', this.isRepeat)
   }
@@ -413,3 +438,13 @@ const recent_volume = $('#volume')
 function volume_change() {
   audio.volume = recent_volume.value / 100;
 }
+
+const showListMusic = $('.btn-playlist.playlist-show')
+showListMusic.addEventListener('click', function () {
+  listMusic.style.transform = 'translateX(0)'
+})
+
+const closeListMusic = $('.btn-playlist.playlist-hidden')
+closeListMusic.addEventListener('click', function () {
+  listMusic.style.transform = 'translateX(100%)'
+})

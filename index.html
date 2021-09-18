@@ -4,7 +4,8 @@
   <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="./assets/img/favicon.png" type="image/gif" sizes="16x16">
     <link rel="stylesheet" href="./assets/main.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
@@ -21,9 +22,6 @@
             <div class="logo">
               <img src="./assets/img/logo.png" alt="" class="logo-img">
             </div>
-            <!-- <div class="img-music">
-
-            </div> -->
           </div>
         </div>
         <div class="space-block"></div>
@@ -44,12 +42,14 @@
               <i class="fas fa-volume-up icon-volume show"></i>
             </div>
 
-            <div class="progress-area">
-              <div class="progress-bar"></div>
-              <div class="timer">
-                <span class="current">0:00</span>
-                <span class="duration"></span>
+            <div class="warpper-progress">
+              <div class="progress-area">
+                <div class="progress-bar"></div>
               </div>
+            </div>
+            <div class="timer">
+              <span class="current">0:00</span>
+              <span class="duration"></span>
             </div>
 
             <audio id="audio" src=""></audio>
@@ -75,10 +75,19 @@
           </div>
         </div>
       </div>
-      <div class="space-block-1"></div>
+
       <div class="list-music">
         <h1 class="list-music-title">Danh sách bài hát</h1>
         <div class="playlist"></div>
+
+        <img src="./assets/img/close-page.png" alt="" class="btn-playlist playlist-hidden">
+      </div>
+    </div>
+
+
+    <div class="show-list-music">
+      <div class="icon-list-music">
+        <img src="./assets/img/icon-list-music.png" alt="" class="btn-playlist playlist-show">
       </div>
     </div>
 

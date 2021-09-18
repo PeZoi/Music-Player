@@ -36,12 +36,12 @@ body {
 }
 
 .information-music {
-  width: 1000px;
-  height: 937px;
+  width: 100%;
+  min-height: 937px;
   display: flex;
   flex-direction: column;
   background-image: linear-gradient(var(--primary-color), #fff);
-  margin-right: 2px;
+  /* margin-right: 2px; */
   border-radius: 10px;
 }
 
@@ -69,6 +69,7 @@ body {
   height: 100%;
   box-shadow: 0 0 20px #000;
   border-radius: 10px;
+  object-fit: cover;
 }
 .img-music {
   width: 150px;
@@ -92,6 +93,8 @@ body {
   border-radius: 10px;
   margin-left: 2px;
   overflow: scroll;
+  transform: translateX(0);
+  position: relative;
 }
 
 .title-music {
@@ -112,7 +115,10 @@ body {
 }
 .title-music h1 {
   margin-top: 12px;
-  font-size: 35px;
+  font-size: 38px;
+}
+.title-music h3 {
+  opacity: 0.9;
 }
 .control-volume {
   display: flex;
@@ -158,20 +164,9 @@ body {
   height: 230px;
   padding: 0 16px;
 }
-.progress {
-  width: 100%;
-  height: 6px;
-  overflow: hidden;
-  outline: none;
-  cursor: pointer;
-  transition: all linear 0.1s ;
+.warpper-progress {
+  height: 12px;
 }
-.progress:hover {
-  height: 10px;
-  overflow: unset;
-  opacity: 0.8;
-}
-
 .progress-area {
   height: 6px;
   width: 100%;
@@ -179,6 +174,9 @@ body {
   border-radius: 50px;
   cursor: pointer;
   box-shadow: 0 0 2px rgb(0 0 0 / 50%);
+}
+.progress-area:hover {
+  height: 8px;
 }
 
 .progress-area .progress-bar {
@@ -192,8 +190,8 @@ body {
 .progress-bar::before {
   content: '';
   position: absolute;
-  height: 12px;
-  width: 12px;
+  height: 14px;
+  width: 14px;
   background-color: var(--primary-color);
   border-radius: inherit;
   top: 50%;
@@ -205,7 +203,6 @@ body {
 
 .progress-area:hover .progress-bar::before {
   opacity: 1;
-
 }
 
 .timer {
@@ -219,7 +216,9 @@ body {
 .controls {
   display: flex;
   justify-content: space-around;
-  margin-top: 50px;
+  max-width: 770px;
+  margin: auto;
+  margin-top: 20px;
 }
 .controls .btn {
   font-size: 25px;
@@ -308,4 +307,187 @@ body {
   color: #999;
   font-size: 18px;
 }
+.list-music-item {
+  position: absolute;
+  top: 42%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  width: 90%;
+  object-fit: cover
+}
+.btn-playlist {
+  width: 60px;
+  height: 60px;
+  /* padding: 10px; */
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  transform: rotate(90deg);
+  border: 2px solid #000;
+  border-radius: 10px;
+  display: none;
+  box-shadow: 0 0 6px #000
+}
+.btn-playlist.playlist-show {
+  transform: rotate(0);
+  padding: 10px;
+}
+/* Mobile & Tablet  <= 1023px */
+@media screen and (max-width: 63.9375em) {
+  .btn-playlist {
+    display: block;
+  }
+  .close-playlist {
+    display: block;
+  }
+  .show-list-music {
+    display: block;
+  }
+  .list-music {
+    background-image: url(https://bloghocpiano.com/wp-content/uploads/2021/03/1376932-top-music-sheet-wallpaper-2044x1389-windows-10.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: auto;
+    height: auto;
+    overflow: hidden;
+    border-radius: 0;
+    margin-left: 0;
+    overflow: scroll;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 2;
+    transform: translateX(100%);
+    transition: all linear 0.3s;
+  }
+}
+/* Mobile: Width < 740px */
+@media screen and (max-width: 46.1875em) {
+  .main {
+    margin: 0;
+    border-radius: 0;
+  }
+  .information-music {
+    border-radius: 0;
+    min-height: 100vh;
+  }
+  .picture-music {
+    height: 20%;
+    margin-top: 30px;
+  }
+  .logo {
+    width: 150px;
+    height: 150px;
+  }
+  .img-music {
+    width: 150px;
+    height: 150px;
+    margin: 15px auto 0;
+  }
+  .title-music {
+    height: 100%;
+    margin-top: 30px;
+  }
+  .title-music h2 {
+    font-size: 20px;
+  }
+  .title-music h1 {
+    font-size: 24px;
+  }
+  .control-volume {
+    display: none;
+  }
+  .warpper-controls {
+    padding-top: 35px;
+  }
+  .controls {
+    -webkit-tap-highlight-color: transparent;
+  }
+  .progress-area {
+    height: 10px;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .progress-bar::before {
+    width: 20px;
+    height: 20px;
+    opacity: 1;
+  }
+  .song .title {
+    font-size: 18px;
+    color: var(--text-color);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    display: -webkit-box;
+  }
+  .list-music-title {
+    margin-top: 65px;
+  }
 
+}
+/* Tablet: width >= 740px and width < 1024px */
+@media screen and (min-width: 46.25em) and (max-width: 63.9375em) {
+  body {
+    min-height: 100vh;
+  }
+  .main {
+    margin: 0;
+    min-height: inherit;
+  }
+  .img-music {
+    width: 200px;
+    height: 200px;
+    margin-top: 25px;
+  }
+  .icon-volume.show{
+    opacity: 0;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .volume-value {
+    opacity: 0;
+  }
+  .main,
+  .information-music {
+    border-radius: 0;
+  }
+  .controls .btn {
+    font-size: 40px;
+  }
+  .btn-toggle-play {
+    width: 75px;
+    height: 75px;
+  }
+  .timer {
+    font-size: 20px;
+  }
+  .controls {
+    margin-top: 20px;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .progress-area {
+    height: 10px;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .progress-area:hover {
+    height: 10px;
+  }
+  .progress-bar::before {
+    width: 20px;
+    height: 20px;
+    opacity: 1;
+  }
+  .controls .btn:hover {
+  opacity: 1;
+  }
+  .song .title {
+    font-size: 22px;
+  }
+}
+
+/* PC: width >= 1024px */
+@media screen and (min-width: 64em) {
+
+}
