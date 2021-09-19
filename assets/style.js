@@ -444,6 +444,16 @@ closeListMusic.addEventListener('click', function () {
 })
 
 function closePlaylist() {
-  listMusic.style.transform = 'translateX(100%)'
+  const screenWidth = screen.availWidth;
+  if (screenWidth <= 1023) {
+    listMusic.style.transform = 'translateX(100%)'
+  } else {
+    listMusic.style.transform = 'translateX(0)'
+  }
 }
+
+// function closePlaylist() {
+//   listMusic.style.transform = 'translateX(100%)'
+// }
+
 

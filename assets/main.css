@@ -362,6 +362,9 @@ body {
     transform: translateX(100%);
     transition: all linear 0.3s;
   }
+  .song:hover {
+  transform: translateX(0px);
+  }
 }
 /* Mobile: Width < 740px */
 @media screen and (max-width: 46.1875em) {
