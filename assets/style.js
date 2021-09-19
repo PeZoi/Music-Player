@@ -193,7 +193,7 @@ const app = {
   render: function () {
     const htmls = this.songs.map((song, index) => {
       return `
-        <div class="song ${index === this.currentIndex ? 'active' : ''}" data-index="${index}">
+        <div onclick="closePlaylist()" class="song ${index === this.currentIndex ? 'active' : ''}" data-index="${index}">
           <div class="thumb" style="background-image: url('${song.image}')">
           </div>
           <div class="body">
@@ -442,4 +442,8 @@ const closeListMusic = $('.btn-playlist.playlist-hidden')
 closeListMusic.addEventListener('click', function () {
   listMusic.style.transform = 'translateX(100%)'
 })
+
+function closePlaylist() {
+  listMusic.style.transform = 'translateX(100%)'
+}
 
