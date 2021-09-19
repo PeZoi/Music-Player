@@ -382,8 +382,8 @@ body {
     height: 150px;
   }
   .img-music {
-    width: 150px;
-    height: 150px;
+    width: 120px;
+    height: 120px;
     margin: 15px auto 0;
   }
   .title-music {
@@ -404,6 +404,7 @@ body {
   }
   .controls {
     -webkit-tap-highlight-color: transparent;
+    margin-top: 10px;
   }
   .progress-area {
     height: 10px;

@@ -265,13 +265,13 @@ const app = {
 
     randomBtn.onclick = function (e) {
       _this.isRandom = !_this.isRandom
-      _this.setConfig('isRandom',  _this.isRandom)
+      // _this.setConfig('isRandom',  _this.isRandom)
       randomBtn.classList.toggle('active', _this.isRandom)
     }
 
     repeatBtn.onclick = function (e) {
       _this.isRepeat = !_this.isRepeat
-      _this.setConfig('isRepeat', _this.isRepeat)
+      // _this.setConfig('isRepeat', _this.isRepeat)
       repeatBtn.classList.toggle('active', _this.isRepeat)
     }
 
