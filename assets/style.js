@@ -1,7 +1,7 @@
 const $ = document.querySelector.bind(document);
 const $$ = document.querySelectorAll.bind(document);
 
-const PLAYER_STORAGE_KEY = 'F8_PLAYER'
+// const PLAYER_STORAGE_KEY = 'F8_PLAYER'
 
 const playlist = $('.playlist')
 const playlistMobile = $('.playlist-mobile')
@@ -26,7 +26,7 @@ const app = {
   isPlaying: false,
   isRandom: false,
   isRepeat: false,
-  config: JSON.parse(localStorage.getItem(PLAYER_STORAGE_KEY)) || {},
+  // config: JSON.parse(localStorage.getItem(PLAYER_STORAGE_KEY)) || {},
   songs: [
     {
       name: "Em Đừng Đi",
@@ -151,7 +151,7 @@ const app = {
     {
       name: "Chạy Ngay Đi",
       singer: "Sơn Tùng - MTP (2018)",
-      path: "./assets/audio/ChayNgayDi.mp3",
+      path: "./assets/audio/ChayNgayDi-SonTungMTP-5468704.mp3",
       image: "./assets/img/ChayNgayDi.jpg"
     },
     {
@@ -179,10 +179,10 @@ const app = {
       image: "./assets/img/MuonRoiMaSaoCon.jpg"
     },
   ],
-  setConfig: function (key, value) {
-    this.config[key] = value;
-    localStorage.setItem(PLAYER_STORAGE_KEY, JSON.stringify(this.config))
-  },
+  // setConfig: function (key, value) {
+  //   this.config[key] = value;
+  //   localStorage.setItem(PLAYER_STORAGE_KEY, JSON.stringify(this.config))
+  // },
   defineProperties: function () {
     Object.defineProperty(this, 'currentSong', {
       get: function () {
@@ -240,12 +240,6 @@ const app = {
       main.classList.remove('playing')
     }
 
-    // audio.ontimeupdate = function () {
-    //   if (audio.duration) {
-    //     const progressPercent = Math.floor(audio.currentTime / audio.duration * 100)
-    //     progress.value = progressPercent;
-    //   }
-    // }
 
     nextBtn.onclick = function () {
       if (_this.isRandom) {
@@ -366,10 +360,10 @@ const app = {
     cdThumb.style.backgroundImage = `url(${this.currentSong.image})`;
     audio.src = this.currentSong.path;
   },
-  loadConfig: function () {
-    this.isRandom = this.config.isRandom
-    this.isRepeat = this.config.isRepeat
-  },
+  // loadConfig: function () {
+  //   this.isRandom = this.config.isRandom
+  //   this.isRepeat = this.config.isRepeat
+  // },
   nextSong: function () {
     this.currentIndex++
     if (this.currentIndex >= this.songs.length) {
@@ -393,7 +387,7 @@ const app = {
     this.loadCurrentSong()
   },
   start: function () {
-    this.loadConfig();
+    // this.loadConfig();
 
     this.defineProperties();
 
@@ -448,3 +442,4 @@ const closeListMusic = $('.btn-playlist.playlist-hidden')
 closeListMusic.addEventListener('click', function () {
   listMusic.style.transform = 'translateX(100%)'
 })
+

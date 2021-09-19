@@ -20,9 +20,9 @@ body {
   display: flex;
   height: 100%;
   overflow: hidden;
-  margin: 16px;
+  /* margin: 16px; */
   box-shadow: 0 0 10px 5px #000;
-  border-radius: 10px;
+  /* border-radius: 10px; */
   background: #ccc;
 }
 .main .icon-pause {
@@ -37,7 +37,7 @@ body {
 
 .information-music {
   width: 100%;
-  min-height: 937px;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   background-image: linear-gradient(var(--primary-color), #fff);
@@ -88,11 +88,11 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
   width: 1000px;
-  height: 940px;
+  height: 100vh;
   overflow: hidden;
   border-radius: 10px;
   margin-left: 2px;
-  overflow: scroll;
+  overflow-y: scroll;
   transform: translateX(0);
   position: relative;
 }
@@ -352,7 +352,7 @@ body {
     overflow: hidden;
     border-radius: 0;
     margin-left: 0;
-    overflow: scroll;
+    overflow-y: scroll;
     position: fixed;
     top: 0;
     left: 0;
@@ -488,6 +488,10 @@ body {
 }
 
 /* PC: width >= 1024px */
-@media screen and (min-width: 64em) {
-
+@media screen and (width: 64em) {
+  .img-music {
+    width: 100px;
+    height: 100px;
+    margin-top: 10px;
+  }
 }
